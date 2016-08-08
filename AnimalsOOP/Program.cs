@@ -22,7 +22,7 @@ namespace test_test
             animals.Add(barsik);
             animals.Add(wolf);
             animals.Add(tiger);
-
+            
             foreach (var a in animals)
             {
                 a.Shout();
