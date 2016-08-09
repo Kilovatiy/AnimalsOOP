@@ -26,7 +26,7 @@ namespace test_test
             animals.Add(wolf);
             animals.Add(tiger);
             //something with namespaces
-            var s = SerializeObject(animals);
+            var s = SerializeAnimalObjects(animals);
             foreach (var a in animals)
             {
                 a.Shout();
