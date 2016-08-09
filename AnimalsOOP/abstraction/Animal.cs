@@ -5,13 +5,19 @@ using test_test.abstraction;
 namespace test_test
 {
     [XmlRoot(Namespace = "abstraction")]
-    [XmlInclude(typeof(xxxPaymentSummary))]
+    [XmlInclude(typeof(Dog))]
+    [XmlInclude(typeof(Cat))]
+    [XmlInclude(typeof(Tiger))]
+    [XmlInclude(typeof(Wolf))]
     public abstract class BaseAnimal: IShoutBehaviour
     {
-        internal string petName { get; set; }
-        internal decimal Weight { get; set; }
-        internal AnimalFamily family { get; set; }
-        internal decimal ShoutStrength { get; set; }
+        [XmlElement]
+        public string petName { get; set; }
+        [XmlElement]
+        public decimal Weight { get; set; }
+        public AnimalFamily family { get; set; }
+        [XmlIgnore]
+        public decimal ShoutStrength { get; set; }
 
         public BaseAnimal() { }
         public BaseAnimal(string name, decimal weight, AnimalFamily family) {

@@ -2,6 +2,7 @@
 
 namespace test_test
 {
+    
     public class Dog:BaseAnimal
     {
         public Dog(string name, decimal weight, AnimalFamily family) : base(name, weight, family) {

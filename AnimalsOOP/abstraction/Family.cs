@@ -5,8 +5,10 @@ namespace test_test
 {
     public class AnimalFamily
     {
-        internal string FamilyName { get; set; }
+
+        public string FamilyName { get; set; }
         internal IShoutBehaviour shoutBehaviour {get;set;}
+        public AnimalFamily() { }
         public AnimalFamily(string Name, IShoutBehaviour shoutBehaviour) {
             FamilyName = Name;
             this.shoutBehaviour = shoutBehaviour;
