@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace test_test
+namespace test_test.animals
 {
     public class Wolf:BaseAnimal
     {

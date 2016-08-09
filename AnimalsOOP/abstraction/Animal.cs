@@ -5,10 +5,11 @@ using test_test.abstraction;
 namespace test_test
 {
     [XmlRoot(Namespace = "abstraction")]
-    [XmlInclude(typeof(Dog))]
+    
+    /*[XmlInclude(typeof(Dog))]
     [XmlInclude(typeof(Cat))]
     [XmlInclude(typeof(Tiger))]
-    [XmlInclude(typeof(Wolf))]
+    [XmlInclude(typeof(Wolf))]*/
     public abstract class BaseAnimal: IShoutBehaviour
     {
         [XmlElement]

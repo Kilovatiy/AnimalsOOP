@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 using test_test.abstraction;
+using test_test.animals;
 
 namespace test_test
 {
@@ -25,7 +26,7 @@ namespace test_test
             animals.Add(wolf);
             animals.Add(tiger);
             //something with namespaces
-            var s = SerializeObject<List<BaseAnimal>>(animals);
+            var s = SerializeObject(animals);
             foreach (var a in animals)
             {
                 a.Shout();
@@ -33,9 +34,14 @@ namespace test_test
             Console.ReadLine();
         }
 
-        public static string SerializeObject<T>(T toSerialize)
+        public static string SerializeAnimalObjects(List<BaseAnimal> toSerialize)
         {
-            XmlSerializer xmlSerializer = new XmlSerializer(toSerialize.GetType());
+            var animalDerivedTypes = (from lAssembly in AppDomain.CurrentDomain.GetAssemblies()
+                             from lType in lAssembly.GetTypes()
+                             where typeof(BaseAnimal).IsAssignableFrom(lType)
+                             select lType);
+                        
+            XmlSerializer xmlSerializer = new XmlSerializer(toSerialize.GetType(), animalDerivedTypes.ToArray());
 
             using (StringWriter textWriter = new StringWriter())
             {
