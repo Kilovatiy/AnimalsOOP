@@ -1,15 +1,19 @@
 ﻿using System;
+using System.Xml.Serialization;
 using test_test.abstraction;
 
 namespace test_test
 {
-    internal abstract class BaseAnimal: IShoutBehaviour
+    [XmlRoot(Namespace = "abstraction")]
+    [XmlInclude(typeof(xxxPaymentSummary))]
+    public abstract class BaseAnimal: IShoutBehaviour
     {
         internal string petName { get; set; }
         internal decimal Weight { get; set; }
         internal AnimalFamily family { get; set; }
         internal decimal ShoutStrength { get; set; }
-        
+
+        public BaseAnimal() { }
         public BaseAnimal(string name, decimal weight, AnimalFamily family) {
             this.petName = name;
             this.Weight = weight;

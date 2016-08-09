@@ -2,12 +2,13 @@
 
 namespace test_test
 {
-    internal class Cat: BaseAnimal
+    public class Cat: BaseAnimal
     {
         public Cat(string name, decimal weight, AnimalFamily family) : base(name, weight, family) {
             base.ShoutStrength = CountShoutStrength();
         }
 
+        public Cat() { }
         public decimal CountShoutStrength()
         {
             base.ShoutStrength = Math.Round(Weight * 0.5m, 0);

@@ -3,7 +3,7 @@ using test_test.abstraction;
 
 namespace test_test
 {
-    internal class AnimalFamily
+    public class AnimalFamily
     {
         internal string FamilyName { get; set; }
         internal IShoutBehaviour shoutBehaviour {get;set;}

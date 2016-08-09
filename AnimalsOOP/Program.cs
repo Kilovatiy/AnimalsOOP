@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 using test_test.abstraction;
 
 namespace test_test
@@ -22,13 +24,25 @@ namespace test_test
             animals.Add(barsik);
             animals.Add(wolf);
             animals.Add(tiger);
-            
+            //something with namespaces
+            var s = SerializeObject<List<BaseAnimal>>(animals);
             foreach (var a in animals)
             {
                 a.Shout();
             }
             Console.ReadLine();
-        }        
+        }
+
+        public static string SerializeObject<T>(T toSerialize)
+        {
+            XmlSerializer xmlSerializer = new XmlSerializer(toSerialize.GetType());
+
+            using (StringWriter textWriter = new StringWriter())
+            {
+                xmlSerializer.Serialize(textWriter, toSerialize);
+                return textWriter.ToString();
+            }
+        }
     }
 
     
